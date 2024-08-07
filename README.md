@@ -1,6 +1,6 @@
-# fastify-starter
+# fastify-mock-server
 
-This is a mock server, which can simulate the interface return data by simply modifying the json file.
+This is a mock server, which can simulate the interface return data by simply modifying the json file. Powered by [fastify](https://www.fastify.io/).
 
 ## Usage
 
