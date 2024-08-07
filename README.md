@@ -1,6 +1,5 @@
 # fastify-starter
 
-这是一个 mock 服务，可以通过简单地修改 json 文件来模拟接口返回数据。
 This is a mock server, which can simulate the interface return data by simply modifying the json file.
 
 ## Usage
