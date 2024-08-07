@@ -1,0 +1,9 @@
+{
+    "enabled": ["/posts/4"],
+    "example": ["/posts/4"],
+    "mockData": {
+        "/posts/4": {
+            "res": "hello, 42"
+        }
+    }
+}

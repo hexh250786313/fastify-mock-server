@@ -44,7 +44,13 @@ server.register(proxy, {
             return headers;
         },
         onResponse: (req, reply, res) => {
-            const headers = reply.getHeaders();
+            const headers = { ...reply.getHeaders() };
+            const existingContentLength = !!headers['content-length'];
+            delete headers['content-length'];
+            reply.removeHeader('content-length');
+            Object.keys(headers).forEach((key) => {
+                reply.header(key, headers[key]);
+            });
             try {
                 let originalBody = Buffer.from([]);
                 res.on('data', (data) => {
@@ -102,26 +108,33 @@ server.register(proxy, {
                         // Replace the original response data with mock data
                         newBody = JSON.stringify(mockData);
 
-                        newBody = zlib.gzipSync(newBody);
-                        reply.header('Content-Encoding', 'gzip');
+                        //// If you want to compress the response data, you can use the following code
+                        //// But there is a small bug in the curl scenario, you need to add the --compressed
+                        //// parameter to the curl request
+                        // newBody = zlib.gzipSync(newBody);
+                        // reply.header('Content-Encoding', 'gzip');
                     } else if (
                         typeof contentType !== 'number' &&
                         (contentType.includes('text') || contentType.includes('json'))
                     ) {
                         if (headers?.['content-encoding'] === 'gzip') {
                             bodyString = zlib.gunzipSync(originalBody).toString('utf8');
+                            reply.header('Content-Encoding', 'gzip');
+                            newBody = bodyString || '{}';
+                            newBody = zlib.gzipSync(newBody);
                         } else {
                             bodyString = originalBody.toString('utf8');
+                            // Get the original response data
+                            newBody = bodyString || '{}';
                         }
-                        // Get the original response data
-                        newBody = bodyString || '{}';
-
-                        newBody = zlib.gzipSync(newBody);
-                        reply.header('Content-Encoding', 'gzip');
                     } else {
                         newBody = originalBody;
                     }
-                    reply.status(status).header('Content-Type', contentType).send(newBody);
+                    reply.status(status).header('Content-Type', contentType);
+                    if (existingContentLength) {
+                        reply.header('Content-Length', newBody.length);
+                    }
+                    reply.send(newBody);
                 });
             } catch (err) {
                 console.error('Error in processing response body', err);

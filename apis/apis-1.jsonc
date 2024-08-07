@@ -1,14 +1,17 @@
 {
-    "enabled": [],
-    "example": ["/api1", "/api2", "/api3"],
+    "enabled": ["/posts/1"], // Only the path in the enabled field will be mocked
+    "example": ["/posts/1", "/posts/2", "/posts/3"], // Just record the path, no actual effect
     "mockData": {
         // Directly define data, the mock service automatically adds code, success, msg, traceId
-        "api1": {
+        // It is actual the "data" part of the response body (like the "data" in the "/posts/2" example below), other parts are added automatically
+        // You can modify the getRes function in src/index.ts to change this structure
+        "/posts/1": {
             "res": "hello, world"
         },
         // Define all return data by yourself
-        // You can modify the getRes function in src/index.ts to change this structure
-        "api2": {
+        // By default, "traceId" is used as the identifier. When "traceId" exists, the default structure will not be added automatically.
+        // You can modify the flag identifier in src/index.ts
+        "/posts/2": {
             "code": 0,
             "success": true,
             "data": {
@@ -18,7 +21,7 @@
             "traceId": "2d89e7fe1a5446e999df82c712ac6c0e.902.16951913902842587"
         },
         // Define all data including response status code
-        "api3": {
+        "/posts/3": {
             "responseStatus": 200,
             "responseBody": {
                 "code": 0,
