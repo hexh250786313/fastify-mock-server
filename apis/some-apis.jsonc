@@ -1,0 +1,34 @@
+{
+    "enabled": [],
+    "example": ["/api1", "/api2", "/api3"],
+    "mockData": {
+        // Directly define data, the mock service automatically adds code, success, msg, traceId
+        "api1": {
+            "res": "hello, world"
+        },
+        // Define all return data by yourself
+        // You can modify the getRes function in src/index.ts to change this structure
+        "api2": {
+            "code": 0,
+            "success": true,
+            "data": {
+                "res": "hello, world"
+            },
+            "msg": "success",
+            "traceId": "2d89e7fe1a5446e999df82c712ac6c0e.902.16951913902842587"
+        },
+        // Define all data including response status code
+        "api3": {
+            "responseStatus": 200,
+            "responseBody": {
+                "code": 0,
+                "success": true,
+                "data": {
+                    "res": "hello, world"
+                },
+                "msg": "success",
+                "traceId": "2d89e7fe1a5446e999df82c712ac6c0e.902.16951913902842587"
+            }
+        }
+    }
+}

@@ -1,0 +1,4 @@
+{
+    "extends": "fastify-tsconfig",
+    "include": ["src/**/*.ts"]
+}

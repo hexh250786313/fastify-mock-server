@@ -1,0 +1,40 @@
+{
+    "name": "fastify-starter",
+    "version": "0.0.0-dev",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "build": "tsup",
+        "start": "tsx ./src/index.ts",
+        "dev:watch": "tsx watch src/server.ts",
+        "prepare": "husky"
+    },
+    "devDependencies": {
+        "@biomejs/biome": "^1.8.3",
+        "@fastify/http-proxy": "^9.5.0",
+        "@fastify/multipart": "^8.3.0",
+        "@types/dotenv": "^8.2.0",
+        "@types/node": "^22.1.0",
+        "dotenv": "^16.4.5",
+        "fastify": "^4.28.1",
+        "fastify-tsconfig": "^2.0.0",
+        "husky": "^9.1.4",
+        "jsonc-parser": "^3.3.1",
+        "lint-staged": "^15.2.8",
+        "prettier": "^3.3.3",
+        "query-string": "^9.1.0",
+        "tsup": "^8.2.4",
+        "tsx": "^4.16.5",
+        "typescript": "^5.5.4"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/hexh250786313/fastify-starter.git"
+    },
+    "author": "hexh <250786313@qq.com>",
+    "license": "Anti-996",
+    "bugs": {
+        "url": "https://github.com/hexh250786313/fastify-starter/issues"
+    },
+    "homepage": "https://github.com/hexh250786313/fastify-starter#readme"
+}

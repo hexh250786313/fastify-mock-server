@@ -1,0 +1,8 @@
+{
+    "$schema": "https://cdn.jsdelivr.net/npm/tsup/schema.json",
+    "entry": ["src/**/*.ts"],
+    "outDir": "lib",
+    "bundle": true,
+    "clean": true,
+    "treeshake": true
+}

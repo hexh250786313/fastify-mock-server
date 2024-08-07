@@ -1,0 +1,15 @@
+{
+    "diagnostic-languageserver.formatFiletypes": {
+        "markdown": "prettier",
+        "html": "prettier"
+    },
+    "diagnostic-languageserver.formatters": {
+        "prettier": {
+            "command": "npx",
+            "args": ["prettier", "--stdin-filepath", "%filename"],
+            "rootPatterns": [".git"],
+            "isStdout": true,
+            "isStderr": true
+        }
+    }
+}
