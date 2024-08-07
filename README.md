@@ -8,7 +8,7 @@ This is a mock server, which can simulate the interface return data by simply mo
 git clone https://github.com/hexh250786313/fastify-mock-server
 cd fastify-mock-server
 npm ci
-npm run start # or 'npm run build && node ./lib/index.js'
+npm run start
 ```
 
 ```
