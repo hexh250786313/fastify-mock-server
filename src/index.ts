@@ -48,6 +48,7 @@ server.register(proxy, {
             const existingContentLength = !!headers['content-length'];
             delete headers['content-length'];
             reply.removeHeader('content-length');
+            const url = req.url?.split('?')[0];
             Object.keys(headers).forEach((key) => {
                 reply.header(key, headers[key]);
             });
@@ -81,7 +82,7 @@ server.register(proxy, {
                         const fileContent = parse(readFileSync(jsonPath, 'utf8'));
                         const enabledMockApis = fileContent.enabled;
                         return enabledMockApis.find((path: string) => {
-                            if (path === req.url) {
+                            if (path === url) {
                                 mockData = fileContent.mockData[path];
                                 return true;
                             }
