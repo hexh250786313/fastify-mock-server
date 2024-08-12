@@ -1,5 +1,5 @@
 {
-    "[typescript][javascript][typescriptreact][javascriptreact][javascript.jsx][typescript.tsx]": {
+    "[typescript][javascript][typescriptreact][javascriptreact][javascript.jsx][typescript.tsx][json][jsonc]": {
         "coc.preferences.formatterExtension": "coc-biome"
     },
     "[markdown][html]": {

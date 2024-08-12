@@ -11,7 +11,7 @@ npm ci
 npm run start
 ```
 
-```
+```bash
 curl http://localhost:2999/posts/1 # will return mock data from ./apis/apis-1.jsonc
 curl http://localhost:2999/posts/2 # will return real data from target server
 curl http://localhost:2999/posts/4 # will return real data from ./apis/apis-2.jsonc
