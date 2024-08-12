@@ -1,10 +1,16 @@
 {
+    "[typescript][javascript][typescriptreact][javascriptreact][javascript.jsx][typescript.tsx]": {
+        "coc.preferences.formatterExtension": "coc-biome"
+    },
+    "[markdown][html]": {
+        "coc.preferences.formatterExtension": "coc-diagnostic"
+    },
     "diagnostic-languageserver.formatFiletypes": {
-        "markdown": "prettier",
-        "html": "prettier"
+        "markdown": "local_prettier",
+        "html": "local_prettier"
     },
     "diagnostic-languageserver.formatters": {
-        "prettier": {
+        "local_prettier": {
             "command": "npx",
             "args": ["prettier", "--stdin-filepath", "%filename"],
             "rootPatterns": [".git"],

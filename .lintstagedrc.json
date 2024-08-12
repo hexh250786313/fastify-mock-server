@@ -1,5 +1,4 @@
 {
-    "*.{js,ts,jsx,tsx}": ["npx biome format --write", "npx biome lint --write"],
-    "*.{json,jsonc}": ["npx biome format --write", "npx biome lint --write"],
+    "*.{js,ts,jsx,tsx,json,jsonc}": ["npx biome format --write", "npx biome lint --write"],
     "*.{html,md}": ["npx prettier --write --no-error-on-unmatched-pattern"]
 }
