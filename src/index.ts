@@ -146,12 +146,17 @@ server.addHook('onRequest', async (request, _reply) => {
         let contentType = request.headers['content-type'];
         contentType = contentType ? contentType.toLowerCase() : '';
 
+        const writeBody = (bodyData: any) => {
+            request.headers['Content-Length'] = String(Buffer.byteLength(bodyData));
+            request.body = bodyData;
+        };
+
         if (contentType.includes('application/json')) {
-            request.body = JSON.stringify(request.body);
+            writeBody(JSON.stringify(request.body));
         }
 
         if (contentType.includes('application/x-www-form-urlencoded')) {
-            request.body = queryString.stringify(request.body as any);
+            writeBody(queryString.stringify(request.body as any));
         }
     }
 });
