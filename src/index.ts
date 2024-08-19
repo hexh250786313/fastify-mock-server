@@ -1,6 +1,5 @@
 import Fastify from 'fastify';
 import proxy from '@fastify/http-proxy';
-import multipart from '@fastify/multipart';
 import zlib from 'zlib';
 import { existsSync, readdirSync, readFileSync } from 'fs';
 import { join } from 'path';
@@ -30,9 +29,6 @@ function getRes(data: any) {
         traceId: 'xxxyyy',
     };
 }
-
-// For parsing multipart/form-data e.g. file uploads
-server.register(multipart);
 
 server.register(proxy, {
     upstream: target,
