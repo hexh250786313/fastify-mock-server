@@ -12,7 +12,6 @@
     "devDependencies": {
         "@biomejs/biome": "^1.8.3",
         "@fastify/http-proxy": "^9.5.0",
-        "@fastify/multipart": "^8.3.0",
         "@types/dotenv": "^8.2.0",
         "@types/node": "^22.1.0",
         "dotenv": "^16.4.5",
