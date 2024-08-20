@@ -14,7 +14,7 @@ npm run start
 ```bash
 curl http://localhost:2999/posts/1 # will return mock data from ./apis/apis-1.jsonc
 curl http://localhost:2999/posts/2 # will return real data from target server
-curl http://localhost:2999/posts/4 # will return real data from ./apis/apis-2.jsonc
+curl http://localhost:2999/posts/4 # will return real data from ./apis/apis-xxyyz.jsonc
 ```
 
 If there is no mock data configured in `./apis` and the path is configured in the `"enabled"` field, the real interface will be requested directly.
